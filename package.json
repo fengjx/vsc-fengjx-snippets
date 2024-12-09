@@ -1,0 +1,45 @@
+{
+  "name": "vsc-fengjx-snippets",
+  "displayName": "vsc-fengjx-snippets",
+  "description": "snippets for fengjx",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "go",
+        "path": "./snippets/go.code-snippets"
+      },
+      {
+        "language": "javascript",
+        "path": "./snippets/javascript.code-snippets"
+      },
+      {
+        "language": "lua",
+        "path": "./snippets/lua.code-snippets"
+      },
+      {
+        "language": "python",
+        "path": "./snippets/python.code-snippets"
+      },
+      {
+        "language": "vue",
+        "path": "./snippets/vue.code-snippets"
+      },
+      {
+        "language": "wxml",
+        "path": "./snippets/wxml.code-snippets"
+      }
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fengjx/vsc-fengjx-snippets.git"
+  },
+  "homepage": "https://github.com/fengjx/vsc-fengjx-snippets/blob/master/README.md"
+}

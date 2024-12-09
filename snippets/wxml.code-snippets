@@ -1,0 +1,9 @@
+{
+    "view": {
+        "prefix": "view",
+        "body": [
+            "<view>${1}</view>"
+        ],
+        "description": "wx view"
+    }
+}

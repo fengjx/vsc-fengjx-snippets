@@ -1,0 +1,288 @@
+{
+    // Place your snippets for go here. Each snippet is defined under a snippet name and has a prefix, body and 
+    // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+    // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+    // same ids are connected.
+    // Example:
+    // "Print to console": {
+    // 	"prefix": "log",
+    // 	"body": [
+    // 		"console.log('$1');",
+    // 		"$2"
+    // 	],
+    // 	"description": "Log output to console"
+    // }
+    "go-package": {
+        "prefix": "package",
+        "body": [
+            "package ${1}"
+        ],
+        "description": "declare go package"
+    },
+    "go-import-m": {
+        "prefix": "import-m",
+        "body": [
+            "import (",
+            "\t\"${1}\"",
+            ")"
+        ],
+        "description": "multiple packages"
+    },
+    "go-import-s": {
+        "prefix": "import-s",
+        "body": [
+            "import \"${1}\""
+        ],
+        "description": "single packages"
+    },
+    "go-func": {
+        "prefix": "func",
+        "body": [
+            "func ${1}()  {",
+            "\t${2}",
+            "}"
+        ],
+        "description": "function"
+    },
+    "go-function-main": {
+        "prefix": "main",
+        "body": [
+            "func main()  {",
+            "\t${1}",
+            "}"
+        ],
+        "description": "main function"
+    },
+    "println": {
+        "prefix": "pn",
+        "body": "fmt.Println($0)",
+        "description": "println"
+    },
+    "printf": {
+        "prefix": "pf",
+        "body": "fmt.Printf(\"$0\")",
+        "description": "printf"
+    },
+    "test-function": {
+        "prefix": "test",
+        "body": [
+            "func Test${1}(t *testing.T) {",
+            "    ${2}",
+            "}"
+        ],
+        "description": "test function"
+    },
+    "go-struct": {
+        "prefix": "st",
+        "body": [
+            "type ${1} struct {",
+            "\t${2}",
+            "}"
+        ],
+        "description": "struct"
+    },
+    "Empty Struct": {
+        "prefix": "es",
+        "body": [
+            "struct{}{}"
+        ]
+    },
+    "Struct json Tag": {
+        "prefix": "stj",
+        "body": [
+            "`${1:json}:\"${2:jsonFieldName}\"`"
+        ]
+    },
+    "Tag": {
+        "prefix": "tag",
+        "body": [
+            "`$1:\"$2\"`"
+        ]
+    },
+    "go-inteface": {
+        "prefix": "st",
+        "body": [
+            "type ${1} inteface {",
+            "\t${2}",
+            "}"
+        ],
+        "description": "inteface"
+    },
+    "go-error": {
+        "scope": "go,golang",
+        "prefix": "err",
+        "body": [
+            "if err != nil {",
+            "\t${0}",
+            "}"
+        ],
+        "description": "if err != nil block"
+    },
+    "if error": {
+        "prefix": "ife",
+        "body": [
+            "if err != nil {",
+            "  $0",
+            "}"
+        ]
+    },
+    "if ok": {
+        "prefix": "ifok",
+        "body": [
+            "if ${1:value}, ok := $2; ok {",
+            "  $0",
+            "}"
+        ]
+    },
+    "Return Nil & err": {
+        "prefix": "rne",
+        "body": [
+            "return nil, err"
+        ]
+    },
+    "Return err": {
+        "prefix": "re",
+        "body": [
+            "return err"
+        ]
+    },
+    "New Constructor Method": {
+        "prefix": "ne",
+        "body": [
+            "func New$1($2) *$1 {",
+            "  $3",
+            "  return &$1{",
+            "    $0",
+            "  }",
+            "}"
+        ]
+    },
+    "Benchmark Function": {
+        "prefix": "bench",
+        "body": [
+            "// Benchmark $2.",
+            "func Benchmark$1(b *testing.B) {",
+            "  for i := 0; i < b.N; i++ {",
+            "    $0",
+            "  }",
+            "}"
+        ]
+    },
+    "Test Function": {
+        "prefix": "t",
+        "body": [
+            "// Test $2.",
+            "func Test$1(t *testing.T) {",
+            "  $0",
+            "}"
+        ],
+    },
+    "Test Case": {
+        "prefix": "tr",
+        "body": [
+            "t.Run(\"$1\", func(t *testing.T){",
+            "  $0",
+            "})"
+        ]
+    },
+    "Context-Canceled Channel Send": {
+        "prefix": "cs",
+        "body": [
+            "select {",
+            "case $1 <- $0:",
+            "case <-ctx.Done():",
+            " return ctx.Err()",
+            "}",
+        ]
+    },
+    "Non-blocking Channel Send": {
+        "prefix": "nb",
+        "body": [
+            "select {",
+            "case $1 <- $0:",
+            "default:",
+            "}",
+        ]
+    },
+    "Function": {
+        "prefix": "f",
+        "body": [
+            "// $1 $2.",
+            "func $1($3) $4 {",
+            "  $0",
+            "}"
+        ]
+    },
+    "Function Anonymous": {
+        "prefix": "ff",
+        "body": [
+            "func($1) $2 {",
+            "  $0",
+            "}"
+        ]
+    },
+    "Append": {
+        "prefix": "a",
+        "body": [
+            "$1 = append($1, $0)"
+        ]
+    },
+    "options": {
+        "prefix": "options",
+        "body": [
+            "// Option function.",
+            "type Option func(*$1) error",
+            "",
+            "// New $2 with the given options.",
+            "func New(options ...Option) (*$1, error) {",
+            "  var v $1",
+            "  for _, o := range options {",
+            "     if err := o(&v); err != nil {",
+            "       return nil, err",
+            "     }",
+            "  }",
+            "  return &v, nil",
+            "}"
+        ]
+    },
+    "option": {
+        "prefix": "o",
+        "body": [
+            "// With$1 $0.",
+            "func With$1($2) Option {",
+            "  return func($3) error {",
+            "    $4",
+            "    return nil",
+            "  }",
+            "}"
+        ]
+    },
+    "sort": {
+        "prefix": "sort",
+        "body": [
+            "sort.Slice(${1:s}, func(i, j int) bool {",
+            "  a := $1[i]",
+            "  b := $1[j]",
+            "  return $0",
+            "})"
+        ]
+    },
+    "NewContext": {
+        "prefix": "nc",
+        "body": [
+            "// ${1:name}Key is a private context key.",
+            "type ${1:name}Key struct{}",
+            "",
+            "// New$3Context returns a new context with ${1:name}.",
+            "func New$3Context(ctx context.Context, v *${2:Type}) context.Context {",
+            "  return context.WithValue(ctx, ${1:name}Key{}, v)",
+            "}",
+            "",
+            "// $3FromContext returns ${1:name} from context.",
+            "func $3FromContext(ctx context.Context) (*${2:Type}, bool) {",
+            "  v, ok := ctx.Value(${1:name}Key{}).(*${2:Type})",
+            "  return v, ok",
+            "}",
+        ]
+    },
+}
