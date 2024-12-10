@@ -100,13 +100,13 @@
         ]
     },
     "go-inteface": {
-        "prefix": "st",
+        "prefix": "si",
         "body": [
-            "type ${1} inteface {",
+            "type ${1} interface {",
             "\t${2}",
             "}"
         ],
-        "description": "inteface"
+        "description": "interface"
     },
     "go-error": {
         "scope": "go,golang",
@@ -284,5 +284,5 @@
             "  return v, ok",
             "}",
         ]
-    },
+    }
 }
